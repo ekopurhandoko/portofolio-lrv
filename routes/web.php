@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
 use Laravel\Socialite\Facades\Socialite;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::get('/auth/callback',[authController::class,"callback"])->middleware('gue
 
 //kehalaman dasboard
 Route::get('/dashboard', function(){
-    return 'Selamat datang '. Auth::user()->name .' di halaman dashboard';
+    return view('dashboard.index');
 })->middleware('auth');
 
 //logout
